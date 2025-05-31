@@ -3,7 +3,7 @@ import Header from "./components/elementos"; // Importa el componente Header
 
 // ID de cliente de Google para autenticación
 const CLIENT_ID =
-  "940558538466-2uougkhvuqn68iq2gkt3gs1q624nuajp.apps.googleusercontent.com";
+  "940558538466-o825padcb3kqimqv2f1r0cslkn822dh4.apps.googleusercontent.com";
 
 function App() {
   // Estado para guardar la información del usuario autenticado
