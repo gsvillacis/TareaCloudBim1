@@ -1,70 +1,156 @@
-# Getting Started with Create React App
+# Mapa de Capacidades - Banco Pichincha
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Nombre:** Gissela Stefania Villacis  
+**Materia:** Desarrollo de aplicaciones Nat en Cloud  
+**Bimestre:** 1  
+**Fecha:** 30 de mayo 2025  
+**Empresa seleccionada:** Banco Pichincha  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Descripción de la empresa
 
-### `npm start`
+Banco Pichincha, fundado en 1906 en Quito, es una de las principales instituciones financieras de Ecuador, ofreciendo una amplia gama de servicios que incluyen cuentas bancarias, créditos personales e hipotecarios, tarjetas de crédito y opciones de inversión. Con una extensa red de sucursales y cajeros automáticos a nivel nacional e internacional, el banco también se destaca por su compromiso con la responsabilidad social y el desarrollo sostenible, participando en iniciativas comunitarias y enfocándose en la innovación tecnológica para mejorar la experiencia del cliente a través de soluciones digitales avanzadas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Mapa de capacidades
 
-### `npm test`
+### Capacidades estratégicas
+- **Gestión de Innovación**
+  - Implementación de IA
+  - Cultura de Innovación
+- **Desarrollo de servicios**
+  - Nuevos servicios digitales
+  - Alineación estratégica
+- **Estrategia de mejora continua**
+  - Procesos de revisión
+  - Análisis de Datos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Capacidades operativas
+- **Identificación del incidente**
+  - Canales de reporte
+  - Clasificación inicial
+- **Registro del incidente**
+  - Documentación detallada
+  - Número de seguimiento
+- **Clasificación y priorización**
+  - Evaluación de impacto
+  - Asignación de Prioridad
+- **Diagnóstico inicial**
+  - Análisis preliminar
+  - Determinación de escalamiento
+- **Escalamiento**
+  - Escalamiento a soporte superior
+  - Involucrar a especialistas
+- **Resolución de incidentes**
+  - Implementación de soluciones
+  - Pruebas de resolución
+- **Cierre del incidente**
+  - Confirmación del usuario
+  - Documentación de la resolución
+- **Mejora continua**
+  - Análisis de incidentes resueltos
+  - Implementación de cambios
 
-### `npm run build`
+### Capacidades de soporte
+- **Gestión del conocimiento**
+  - Base de conocimientos
+  - Acceso a la información
+- **Gestión de Configuración**
+  - Registro de activos de TI
+  - Disponibilidad de la información
+- **Gestión de capacidad**
+  - Planificación de recursos
+- **Gestión de Disponibilidad**
+  - Disponibilidad de servicios
+  - Reducir tiempos de inactividad
+- **Gestión de seguridad**
+  - Protección de servicios
+  - Políticas de seguridad
+- **Gestión de proveedores**
+  - Coordinación con proveedores
+  - Cumplimiento de SLAs
+- **Gestión de calidad**
+  - Control de calidad
+  - Auditorias y revisiones
+- **Gestión de la continuidad del negocio**
+  - Planes de continuidad
+  - Pruebas de continuidad
+- **Gestión de formación**
+  - Capacitación del personal
+  - Evaluación de competencias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Información de la aplicación objetivo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Esta aplicación web muestra el mapa de capacidades del Banco Pichincha, permitiendo visualizar de manera estructurada las capacidades estratégicas, operativas y de soporte de la organización. El acceso está protegido mediante autenticación con Google.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Uso e instalación de la aplicación
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Visualización en línea
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Puedes acceder a la aplicación publicada en GitHub Pages en la siguiente URL:  
+[https://gsvillacis.github.io/TareaCloudBim1/](https://gsvillacis.github.io/TareaCloudBim1/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Solo necesitas un navegador web moderno y una cuenta de Google para iniciar sesión y visualizar el mapa de capacidades.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Instalación y ejecución local
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Si deseas ejecutar la aplicación en tu propio equipo para desarrollo o pruebas, sigue estos pasos:
 
-### Code Splitting
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/gsvillacis/TareaCloudBim1.git
+   cd TareaCloudBim1
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Instala las dependencias del proyecto:**  
+   Asegúrate de tener [Node.js](https://nodejs.org/) y npm instalados.
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+3. **Ejecuta la aplicación en modo desarrollo:**  
+   Esto iniciará un servidor local y abrirá la aplicación en tu navegador.
+   ```bash
+   npm start
+   ```
+   Por defecto, la aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Autenticación:**  
+   Al abrir la aplicación, deberás iniciar sesión con tu cuenta de Google.  
+   Si tienes problemas con el inicio de sesión:
+   - Verifica que la URL de redirección (`http://localhost:3000`) esté registrada en Google Cloud Console.
+   - Asegúrate de que el Client ID de Google en el código sea el correcto.
+   - Prueba limpiar la caché del navegador o usar modo incógnito.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Personalización y despliegue
 
-### Advanced Configuration
+- Para modificar el contenido del mapa de capacidades o la autenticación, edita el archivo `src/App.jsx`.
+- Si deseas desplegar tu propia versión en GitHub Pages:
+  1. Realiza tus cambios y haz commit.
+  2. Ejecuta:
+     ```bash
+     npm run build
+     ```
+  3. Publica la carpeta `build` usando la configuración de GitHub Pages (puedes usar el paquete `gh-pages` para automatizar el despliegue).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+**Requisitos:**
+- Node.js 16+ y npm
+- Navegador web moderno
+- Cuenta de Google para autenticación
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Soporte:**  
+Si tienes dudas o problemas, revisa la configuración de autenticación en Google Cloud Console o consulta el archivo `src/App.jsx` para ajustar el Client ID.
