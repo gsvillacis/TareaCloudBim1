@@ -8,17 +8,17 @@ export default function MapaCapacidades() {
         <h2 className={styles.seccionTitulo}>Capacidades estratégicas</h2>
         <div className={styles.fila}>
           <div className={styles.cajaBlanca}>
-            <b>Gestión de Innovación</b>
+            <b className={styles.centrado}>Gestión de Innovación</b>
             <div>Implementación de IA</div>
             <div>Cultura de Innovación</div>
           </div>
           <div className={styles.cajaBlanca}>
-            <b>Desarrollo de servicios</b>
+            <b className={styles.centrado}>Desarrollo de servicios</b>
             <div>Nuevos servicios digitales</div>
             <div>Alineación estratégica</div>
           </div>
           <div className={styles.cajaBlanca}>
-            <b>Estrategia de mejora continua</b>
+            <b className={styles.centrado}>Estrategia de mejora continua</b>
             <div>Procesos de revisión</div>
             <div>Análisis de Datos</div>
           </div>
