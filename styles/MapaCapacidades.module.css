@@ -2,16 +2,16 @@
   background: #003366;
   min-height: 100vh;
   padding: 0;
-  color: #fff;
 }
 
+/* Agrega margen externo al marco */
 .marco {
-  max-width: 1800px;           /* O el ancho máximo que soporte tu pantalla */
-  margin: 0 auto;              /* Centrado horizontal */
+  max-width: 1800px;
+  margin: 40px auto;           /* 40px de margen arriba y abajo, centrado horizontal */
   background: #003366;
   border: 4px solid #FFD600;
   border-radius: 48px;
-  padding: 48px 80px;          /* 80px de separación interna a izquierda y derecha */
+  padding: 48px 80px;          /* Espacio interno para separar las cajas del borde */
   box-sizing: border-box;
 }
 
