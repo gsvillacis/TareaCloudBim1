@@ -22,6 +22,7 @@ export default function Home() {
         window.google.accounts.id.initialize({
           client_id: CLIENT_ID,
           callback: (response) => {
+            // Asegúrate de que jwt_decode es una función
             const userObject = jwt_decode(response.credential);
             setUser(userObject);
           },
