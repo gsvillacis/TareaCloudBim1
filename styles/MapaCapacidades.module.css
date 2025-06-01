@@ -1,0 +1,80 @@
+.mapaFondo {
+  background: #003366;
+  min-height: 100vh;
+  padding: 32px 0;
+  color: #fff;
+}
+
+.seccion {
+  margin-bottom: 32px;
+}
+
+.seccionTitulo {
+  color: #fff;
+  text-align: left;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+}
+
+.cajaBlanca {
+  background: #162938;
+  border-radius: 12px;
+  padding: 16px 18px;
+  min-width: 220px;
+  color: #fff;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px #0002;
+  font-size: 1rem;
+  flex: 1 1 220px;
+  max-width: 260px;
+}
+
+.caja {
+  border-radius: 12px;
+  padding: 16px 18px;
+  min-width: 220px;
+  color: #fff;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px #0002;
+  font-size: 1rem;
+  flex: 1 1 220px;
+  max-width: 260px;
+}
+
+.verde {
+  background: #b9fbc0;
+  color: #18344a;
+}
+.verdeClaro {
+  background: #d0f4de;
+  color: #18344a;
+}
+.verdeOscuro {
+  background: #38b000;
+  color: #fff;
+}
+.rosa {
+  background: #f7b6d2;
+  color: #18344a;
+}
+.celeste {
+  background: #a3c4f3;
+  color: #18344a;
+}
+.naranja {
+  background: #ffd6a5;
+  color: #18344a;
+}
+.gris {
+  background: #e0e0e0;
+  color: #18344a;
+}
