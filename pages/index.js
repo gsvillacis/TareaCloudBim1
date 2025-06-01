@@ -1,8 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
-import jwt_decode from "jwt-decode";
 
-const CLIENT_ID = "940558538466-o825padcb3kqimqv2f1r0cslkn822dh4.apps.googleusercontent.com"; // Reemplaza con tu Client ID de Google
+const CLIENT_ID = "940558538466-o825padcb3kqimqv2f1r0cslkn822dh4.apps.googleusercontent.com";
+
+// Función para decodificar el JWT sin librerías externas
+function parseJwt(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    return null;
+  }
+}
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -10,7 +26,6 @@ export default function Home() {
   const [visitas, setVisitas] = useState(0);
 
   useEffect(() => {
-    // Cargar el script de Google Identity Services
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
@@ -22,8 +37,7 @@ export default function Home() {
         window.google.accounts.id.initialize({
           client_id: CLIENT_ID,
           callback: (response) => {
-            // Asegúrate de que jwt_decode es una función
-            const userObject = jwt_decode(response.credential);
+            const userObject = parseJwt(response.credential);
             setUser(userObject);
           },
         });
@@ -44,19 +58,14 @@ export default function Home() {
   return (
     <div>
       {!user ? (
-        <div className="login-container">
-          <h1>Mapa de capacidades de Banco Pichincha</h1>
-          <h2>Iniciar sesión con Google</h2>
+        <div>
+          <h1>Iniciar sesión con Google</h1>
           <div ref={loginDiv}></div>
         </div>
       ) : (
         <div>
-          <Header user={user} />
-          <hr />
-          <h1>
-            Mapa de capacidades Gestión de Incidentes Tecnológicos de Banco Pichincha
-          </h1>
-          {/* Aquí va el resto de tu contenido */}
+          <h2>Bienvenido, {user.name}</h2>
+          <p>{user.email}</p>
         </div>
       )}
       <div
