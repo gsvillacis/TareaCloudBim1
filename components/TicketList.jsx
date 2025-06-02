@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/TicketList.module.css";
 
 export default function TicketList({ tickets }) {
@@ -21,8 +22,14 @@ export default function TicketList({ tickets }) {
         <tbody>
           {tickets.map(ticket => (
             <tr key={ticket.id}>
-              <td>{ticket.id}</td>
-              <td>{ticket.fechaHora}</td>
+              <td>
+                <Link href={`/tickets/${ticket.id}`}>
+                  <span style={{ color: "#1a237e", fontWeight: "bold", cursor: "pointer", textDecoration: "underline" }}>
+                    {ticket.id}
+                  </span>
+                </Link>
+              </td>
+              <td>{ticket.fechaHora || ticket.fechaRegistro}</td>
               <td>{ticket.componente}</td>
               <td>{ticket.tipo}</td>
               <td>{ticket.registradoPor}</td>

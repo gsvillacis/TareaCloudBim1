@@ -4,5 +4,5 @@
   "/_document": "pages/_document.js",
   "/menu": "pages/menu.js",
   "/tickets": "pages/tickets.js",
-  "/": "pages/index.js"
+  "/tickets/[id]": "pages/tickets/[id].js"
 }

@@ -1,13 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TicketForm from "../components/TicketForm";
 import TicketList from "../components/TicketList";
 
 export default function TicketsPage() {
   const [tickets, setTickets] = useState([]);
-  const [view, setView] = useState("registro"); // "registro" o "revision"
+  const [view, setView] = useState("registro");
+  const [successMsg, setSuccessMsg] = useState(""); // Nuevo estado
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("tickets");
+      if (stored) setTickets(JSON.parse(stored));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("tickets", JSON.stringify(tickets));
+    }
+  }, [tickets]);
 
   const handleAddTicket = (ticket) => {
     setTickets([ticket, ...tickets]);
+    setSuccessMsg(`Su ticket ha sido registrado exitosamente con el ID: ${ticket.id}`);
+    window.scrollTo(0, 0); // Hace scroll al inicio de la página
+    setTimeout(() => setSuccessMsg(""), 4000); // Oculta el mensaje después de 4 segundos
   };
 
   return (
@@ -73,6 +90,31 @@ export default function TicketsPage() {
           <TicketList tickets={tickets} />
         )}
       </div>
+
+      {/* Mensaje de éxito en la parte superior */}
+      {successMsg && (
+        <div style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          top: 30,
+          margin: "0 auto",
+          width: "fit-content",
+          background: "#ffd600",
+          color: "#1a237e",
+          padding: "1.5rem 3rem",
+          borderRadius: 10,
+          fontWeight: "bold",
+          fontSize: "2rem",
+          letterSpacing: "1.5px",
+          boxShadow: "0 2px 12px #ffd60088",
+          zIndex: 2000,
+          textAlign: "center",
+          textShadow: "1px 1px 2px #fff8"
+        }}>
+          {successMsg}
+        </div>
+      )}
     </div>
   );
 }

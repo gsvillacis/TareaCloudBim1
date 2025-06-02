@@ -1,43 +1,93 @@
 .formulario {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px #0002;
-  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 2.5rem 2rem;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  border: 2px solid #ffd600; /* Amarillo */
 }
+
 .formulario h2 {
-  margin-bottom: 1rem;
-  color: #1a237e;
+  color: #1a237e; /* Azul */
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
-.formulario label {
+
+.seccion {
+  border: 2px solid #1a237e; /* Azul */
+  border-radius: 12px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #f5f7fa; /* Plomo claro */
+  box-shadow: 0 2px 8px #1a237e22;
+}
+
+.seccion legend {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f5f5f4; /* Amarillo */
+  background: #1a237e;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ffd60033;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.seccion label {
   display: flex;
   flex-direction: column;
   font-weight: 500;
-  color: #333;
+  color: #1a237e;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
 }
-.formulario input,
-.formulario select,
-.formulario textarea {
-  margin-top: 0.3rem;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #bdbdbd;
-  font-size: 1rem;
+
+.seccion input,
+.seccion select,
+.seccion textarea {
+  margin-top: 0.4rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #bdbdbd;
+  font-size: 1.1rem;
+  background: #fff;
+  transition: border 0.2s;
 }
+
+.seccion input:focus,
+.seccion select:focus,
+.seccion textarea:focus {
+  border: 2px solid #fbfaf8;
+  outline: none;
+}
+
+.seccion textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
 .formulario button {
   background: #1a237e;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 1rem;
-  transition: background 0.2s;
+  margin-top: 2rem;
+  align-self: center;
+  box-shadow: 0 2px 12px #ffd60044;
+  transition: background 0.2s, color 0.2s;
 }
+
 .formulario button:hover {
-  background: #3949ab;
+  background: #ffd600;
+  color: #1a237e;
 }
