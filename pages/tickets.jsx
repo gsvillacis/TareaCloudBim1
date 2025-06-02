@@ -1,11 +1,23 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import TicketForm from "../components/TicketForm";
 import TicketList from "../components/TicketList";
 
 export default function TicketsPage() {
+  const router = useRouter();
   const [tickets, setTickets] = useState([]);
   const [view, setView] = useState("registro");
   const [successMsg, setSuccessMsg] = useState("");
+
+  // Leer el parámetro 'view' de la URL al cargar la página
+  useEffect(() => {
+    if (router.isReady) {
+      const queryView = router.query.view;
+      if (queryView === "revision" || queryView === "registro") {
+        setView(queryView);
+      }
+    }
+  }, [router.isReady, router.query.view]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -27,9 +39,14 @@ export default function TicketsPage() {
     setTimeout(() => setSuccessMsg(""), 4000);
   };
 
+  // Cuando cambias de vista, actualiza la URL también
+  const handleSetView = (newView) => {
+    setView(newView);
+    router.replace(`/tickets?view=${newView}`);
+  };
+
   return (
     <div style={{ display: "flex", maxWidth: 1200, margin: "0 auto", padding: 24 }}>
-      {/* Menú lateral */}
       <nav style={{
         width: 220,
         background: "#f5f7fa",
@@ -42,7 +59,7 @@ export default function TicketsPage() {
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           <li style={{ marginBottom: 24 }}>
             <button
-              onClick={() => setView("registro")}
+              onClick={() => handleSetView("registro")}
               style={{
                 background: view === "registro" ? "#1a237e" : "#fff",
                 color: view === "registro" ? "#fff" : "#1a237e",
@@ -61,7 +78,7 @@ export default function TicketsPage() {
           </li>
           <li>
             <button
-              onClick={() => setView("revision")}
+              onClick={() => handleSetView("revision")}
               style={{
                 background: view === "revision" ? "#1a237e" : "#fff",
                 color: view === "revision" ? "#fff" : "#1a237e",
@@ -81,9 +98,7 @@ export default function TicketsPage() {
         </ul>
       </nav>
 
-      {/* Contenido principal con posición relativa */}
       <div style={{ flex: 1, position: "relative" }}>
-        {/* Mensaje de éxito centralizado y más pequeño */}
         {successMsg && (
           <div style={{
             position: "absolute",
