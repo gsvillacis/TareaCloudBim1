@@ -1,70 +1,111 @@
 .mapaFondo {
-  background: #003366;
+  background: linear-gradient(135deg, #003366 70%, #FFD600 100%);
   min-height: 100vh;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Agrega margen externo al marco */
+/* Tarjeta de presentación elegante */
+.tarjetaPresentacion {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #fffde4;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #0003;
+  padding: 22px 48px;
+  margin-top: 48px;
+  margin-bottom: 32px;
+  min-width: 350px;
+  max-width: 600px;
+  border: none;
+}
+
+.logoUtpl {
+  height: 70px;
+  width: auto;
+  margin-right: 12px;
+}
+
+.nombrePresentacion {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 4px;
+}
+.temaPresentacion, .empresaPresentacion {
+  font-size: 1.08rem;
+  color: #18344a;
+  margin-bottom: 2px;
+}
+
+/* Marco general con separación del borde */
 .marco {
   max-width: 1800px;
-  margin: 40px auto;           /* 40px de margen arriba y abajo, centrado horizontal */
-  background: #003366;
-  border: 4px solid #FFD600;
-  border-radius: 48px;
-  padding: 48px 80px;          /* Espacio interno para separar las cajas del borde */
+  margin: 0 auto 48px auto;
+  background: #003366cc;
+  border-radius: 36px;
+  padding: 48px 48px 32px 48px;
   box-sizing: border-box;
+  box-shadow: 0 8px 32px #0002;
+  
 }
 
 /* Secciones y títulos */
 .seccion {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .seccionTitulo {
-  color: #fff;
+  color: #FFD600;
   text-align: center;
-  margin-bottom: 16px;
-  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
   font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0004;
+}
+
+.lineaTitulo {
+  border: none;
+  border-top: 2px solid #FFD600;
+  margin: 0 auto 24px auto;
+  width: 60%;
+  opacity: 0.7;
 }
 
 .fila {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 32px;
   margin-bottom: 16px;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
-.cajaBlanca {
-  background: #162938;
-  border-radius: 12px;
-  padding: 16px 18px;
+/* Cajas enmarcadas y separadas */
+.cajaBlanca, .caja {
+  background: #162938e6;
+  border-radius: 18px;
+  padding: 20px 22px;
   min-width: 220px;
   color: #fff;
   margin-bottom: 8px;
-  box-shadow: 0 2px 8px #0002;
+  box-shadow: 0 4px 16px #0002;
   font-size: 1rem;
   flex: 1 1 220px;
   max-width: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #FFD600;
+  transition: transform 0.18s, box-shadow 0.18s;
 }
-
-.caja {
-  border-radius: 12px;
-  padding: 16px 18px;
-  min-width: 220px;
-  color: #fff;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 8px #0002;
-  font-size: 1rem;
-  flex: 1 1 220px;
-  max-width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cajaBlanca:hover, .caja:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 8px 32px #0003;
+  z-index: 2;
 }
 
 .centrado {
@@ -76,31 +117,39 @@
   display: block;
 }
 
+/* Colores armonizados */
 .verde {
-  background: #b9fbc0;
+  background: #b9fbc0e6;
   color: #18344a;
+  border-color: #38b000;
 }
 .verdeClaro {
-  background: #d0f4de;
+  background: #d0f4dee6;
   color: #18344a;
+  border-color: #70e000;
 }
 .verdeOscuro {
-  background: #38b000;
+  background: #38b000e6;
   color: #fff;
+  border-color: #008000;
 }
 .rosa {
-  background: #f7b6d2;
+  background: #f7b6d2e6;
   color: #18344a;
+  border-color: #ff70a6;
 }
 .celeste {
-  background: #a3c4f3;
+  background: #a3c4f3e6;
   color: #18344a;
+  border-color: #5390d9;
 }
 .naranja {
-  background: #ffd6a5;
+  background: #ffd6a5e6;
   color: #18344a;
+  border-color: #ffb700;
 }
 .gris {
-  background: #e0e0e0;
+  background: #e0e0e0e6;
   color: #18344a;
+  border-color: #bdbdbd;
 }

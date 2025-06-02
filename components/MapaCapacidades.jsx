@@ -3,9 +3,25 @@ import styles from "../styles/MapaCapacidades.module.css";
 export default function MapaCapacidades() {
   return (
     <div className={styles.mapaFondo}>
+      {/* Tarjeta de presentación elegante con logo UTPL */}
+      <div className={styles.tarjetaPresentacion}>
+        <img
+          src="/utpl-logo.png"
+          alt="Logo UTPL"
+          className={styles.logoUtpl}
+        />
+        <div>
+          <div className={styles.nombrePresentacion}>Gissela Stefania Villacis Villacis</div>
+          <div className={styles.temaPresentacion}>Tema: Mapa de capacidades</div>
+          <div className={styles.empresaPresentacion}>Empresa: Banco Pichincha</div>
+        </div>
+      </div>
+
       <div className={styles.marco}>
+        {/* Título y línea */}
         <div className={styles.seccion}>
           <h2 className={styles.seccionTitulo}>Capacidades estratégicas</h2>
+          <hr className={styles.lineaTitulo} />
           <div className={styles.fila}>
             <div className={styles.cajaBlanca}>
               <b className={styles.centrado}>Gestión de Innovación</b>
@@ -27,6 +43,7 @@ export default function MapaCapacidades() {
 
         <div className={styles.seccion}>
           <h2 className={styles.seccionTitulo}>Capacidades operativas</h2>
+          <hr className={styles.lineaTitulo} />
           <div className={styles.fila}>
             <div className={`${styles.caja} ${styles.verde}`}>
               <b className={styles.centrado}>1 Identificación del incidente</b>
@@ -73,6 +90,7 @@ export default function MapaCapacidades() {
 
         <div className={styles.seccion}>
           <h2 className={styles.seccionTitulo}>Capacidades de soporte</h2>
+          <hr className={styles.lineaTitulo} />
           <div className={styles.fila}>
             <div className={styles.cajaBlanca}>
               <b className={styles.centrado}>Gestión del conocimiento</b>
