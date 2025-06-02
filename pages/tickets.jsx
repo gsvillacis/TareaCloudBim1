@@ -5,7 +5,7 @@ import TicketList from "../components/TicketList";
 export default function TicketsPage() {
   const [tickets, setTickets] = useState([]);
   const [view, setView] = useState("registro");
-  const [successMsg, setSuccessMsg] = useState(""); // Nuevo estado
+  const [successMsg, setSuccessMsg] = useState("");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -23,8 +23,8 @@ export default function TicketsPage() {
   const handleAddTicket = (ticket) => {
     setTickets([ticket, ...tickets]);
     setSuccessMsg(`Su ticket ha sido registrado exitosamente con el ID: ${ticket.id}`);
-    window.scrollTo(0, 0); // Hace scroll al inicio de la página
-    setTimeout(() => setSuccessMsg(""), 4000); // Oculta el mensaje después de 4 segundos
+    window.scrollTo(0, 0);
+    setTimeout(() => setSuccessMsg(""), 4000);
   };
 
   return (
@@ -81,8 +81,31 @@ export default function TicketsPage() {
         </ul>
       </nav>
 
-      {/* Contenido principal */}
-      <div style={{ flex: 1 }}>
+      {/* Contenido principal con posición relativa */}
+      <div style={{ flex: 1, position: "relative" }}>
+        {/* Mensaje de éxito centralizado y más pequeño */}
+        {successMsg && (
+          <div style={{
+            position: "absolute",
+            left: "50%",
+            top: 30,
+            transform: "translateX(-50%)",
+            background: "#ffd600",
+            color: "#1a237e",
+            padding: "0.7rem 1.5rem",
+            borderRadius: 8,
+            fontWeight: "bold",
+            fontSize: "1.1rem",
+            boxShadow: "0 2px 8px #ffd60088",
+            zIndex: 2000,
+            textAlign: "center",
+            minWidth: 240,
+            maxWidth: 380,
+            letterSpacing: "1px"
+          }}>
+            {successMsg}
+          </div>
+        )}
         {view === "registro" && (
           <TicketForm onAddTicket={handleAddTicket} ticketCount={tickets.length} />
         )}
@@ -90,31 +113,6 @@ export default function TicketsPage() {
           <TicketList tickets={tickets} />
         )}
       </div>
-
-      {/* Mensaje de éxito en la parte superior */}
-      {successMsg && (
-        <div style={{
-          position: "fixed",
-          left: 0,
-          right: 0,
-          top: 30,
-          margin: "0 auto",
-          width: "fit-content",
-          background: "#ffd600",
-          color: "#1a237e",
-          padding: "1.5rem 3rem",
-          borderRadius: 10,
-          fontWeight: "bold",
-          fontSize: "2rem",
-          letterSpacing: "1.5px",
-          boxShadow: "0 2px 12px #ffd60088",
-          zIndex: 2000,
-          textAlign: "center",
-          textShadow: "1px 1px 2px #fff8"
-        }}>
-          {successMsg}
-        </div>
-      )}
     </div>
   );
 }
