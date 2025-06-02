@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Home.module.css";
 import MapaCapacidades from "../components/MapaCapacidades";
 
+
 const CLIENT_ID = "940558538466-o825padcb3kqimqv2f1r0cslkn822dh4.apps.googleusercontent.com";
 
 // Función para decodificar el JWT sin librerías externas
