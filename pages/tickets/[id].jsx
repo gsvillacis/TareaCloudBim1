@@ -28,6 +28,17 @@ export default function TicketDetail() {
     localStorage.setItem("tickets", JSON.stringify(tickets));
     setTicket(form);
     setIsEdit(false);
+
+    if (form.estado === "Cerrado") {
+      window.alert("El ticket se encuentra cerrado");
+      router.replace("/tickets?view=revision");
+      return;
+    }
+    if (form.estado === "En progreso") {
+      window.alert("El ticket se encuentra en proceso");
+      router.replace("/tickets?view=revision");
+      return;
+    }
   };
 
   if (!ticket) {
@@ -85,139 +96,164 @@ export default function TicketDetail() {
         Atención del ticket {ticket.id}
       </h2>
       {isEdit ? (
-        <form style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-          {/* Información del registrante */}
-          <div style={sectionStyle}>
-            <div style={legendStyle}>Información del registrante</div>
-            <label style={labelStyle}>Registrado por:
-              <input
-                name="registradoPor"
-                value={form.registradoPor || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Fecha y hora de registro:
-              <input
-                name="fechaRegistro"
-                value={form.fechaRegistro || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Número de contacto:
-              <input
-                name="numeroContacto"
-                value={form.numeroContacto || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-          </div>
+        <>
+          <form style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            {/* Información del registrante */}
+            <div style={sectionStyle}>
+              <div style={legendStyle}>Información del registrante</div>
+              <label style={labelStyle}>Registrado por:
+                <input
+                  name="registradoPor"
+                  value={form.registradoPor || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Fecha y hora de registro:
+                <input
+                  name="fechaRegistro"
+                  value={form.fechaRegistro || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Número de contacto:
+                <input
+                  name="numeroContacto"
+                  value={form.numeroContacto || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+            </div>
 
-          {/* Detalles del Ticket */}
-          <div style={sectionStyle}>
-            <div style={legendStyle}>Detalles del Ticket</div>
-            <label style={labelStyle}>Componente afectado:
-              <input
-                name="componente"
-                value={form.componente || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Tipo de componente:
-              <input
-                name="tipo"
-                value={form.tipo || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Prioridad:
-              <input
-                name="prioridad"
-                value={form.prioridad || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Grupo resolutor:
-              <input
-                name="grupoResolutor"
-                value={form.grupoResolutor || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Técnico asignado:
-              <input
-                name="tecnicoAsignado"
-                value={form.tecnicoAsignado || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Descripción del error:
-              <input
-                name="descripcion"
-                value={form.descripcion || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-          </div>
+            {/* Detalles del Ticket */}
+            <div style={sectionStyle}>
+              <div style={legendStyle}>Detalles del Ticket</div>
+              <label style={labelStyle}>Componente afectado:
+                <input
+                  name="componente"
+                  value={form.componente || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Tipo de componente:
+                <input
+                  name="tipo"
+                  value={form.tipo || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Prioridad:
+                <input
+                  name="prioridad"
+                  value={form.prioridad || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Grupo resolutor:
+                <input
+                  name="grupoResolutor"
+                  value={form.grupoResolutor || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Técnico asignado:
+                <input
+                  name="tecnicoAsignado"
+                  value={form.tecnicoAsignado || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Descripción del error:
+                <input
+                  name="descripcion"
+                  value={form.descripcion || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+            </div>
 
-          {/* Información de solución */}
-          <div style={sectionStyle}>
-            <div style={legendStyle}>Información de solución</div>
-            <label style={labelStyle}>Acciones de recuperación:
-              <input
-                name="accionesRecuperacion"
-                value={form.accionesRecuperacion || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Fecha y hora de solución:
-              <input
-                name="fechaSolucion"
-                value={form.fechaSolucion || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-            <label style={labelStyle}>Estado:
-              <input
-                name="estado"
-                value={form.estado || ""}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </label>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleSave}
+            {/* Información de solución */}
+            <div style={sectionStyle}>
+              <div style={legendStyle}>Información de solución</div>
+              <label style={labelStyle}>Acciones de recuperación:
+                <input
+                  name="accionesRecuperacion"
+                  value={form.accionesRecuperacion || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Fecha y hora de solución:
+                <input
+                  name="fechaSolucion"
+                  value={form.fechaSolucion || ""}
+                  onChange={handleChange}
+                  style={inputStyle}
+                />
+              </label>
+              <label style={labelStyle}>Estado:
+                <select
+                  name="estado"
+                  value={form.estado || ""}
+                  onChange={handleChange}
+                  style={{ ...inputStyle, background: "#fff" }}
+                >
+                  <option value="">Seleccione estado</option>
+                  <option value="Abierto">Abierto</option>
+                  <option value="En progreso">En progreso</option>
+                  <option value="Cerrado">Cerrado</option>
+                </select>
+              </label>
+            </div>
+          </form>
+          <div
             style={{
-              marginTop: 20,
-              padding: "10px 28px",
-              borderRadius: 8,
-              background: "#1a237e",
-              color: "#fff",
-              border: "none",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              position: "absolute",
-              right: 32,
-              bottom: 32,
-              boxShadow: "0 2px 8px #1a237e33"
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 48
             }}
           >
-            Guardar
-          </button>
-        </form>
+            <button
+              onClick={() => router.replace("/tickets?view=revision")}
+              style={{
+                padding: "10px 28px",
+                borderRadius: 8,
+                background: "#bdbdbd",
+                color: "#1a237e",
+                border: "none",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px #bdbdbd33"
+              }}
+            >
+              Volver
+            </button>
+            <button
+              type="button"
+              onClick={handleSave}
+              style={{
+                padding: "10px 28px",
+                borderRadius: 8,
+                background: "#1a237e",
+                color: "#fff",
+                border: "none",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px #1a237e33"
+              }}
+            >
+              Guardar
+            </button>
+          </div>
+        </>
       ) : (
         <>
           {/* Información del registrante */}
@@ -268,51 +304,48 @@ export default function TicketDetail() {
               <span style={labelStyle}>Estado:</span> {ticket.estado}
             </div>
           </div>
-        </>
-      )}
-
-      {/* Botones inferiores */}
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        position: "absolute",
-        left: 32,
-        right: 32,
-        bottom: 32
-      }}>
-        <button
-          onClick={() => router.replace("/tickets?view=revision")}
-          style={{
-            padding: "10px 28px",
-            borderRadius: 8,
-            background: "#bdbdbd",
-            color: "#1a237e",
-            border: "none",
-            fontWeight: "bold",
-            fontSize: "1rem",
-            boxShadow: "0 2px 8px #bdbdbd33"
-          }}
-        >
-          Volver
-        </button>
-        {!isEdit && (
-          <button
-            onClick={() => setIsEdit(true)}
+          <div
             style={{
-              padding: "10px 28px",
-              borderRadius: 8,
-              background: "#ffd600",
-              color: "#1a237e",
-              border: "none",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              boxShadow: "0 2px 8px #ffd60088"
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 48
             }}
           >
-            Atender ticket
-          </button>
-        )}
-      </div>
+            <button
+              onClick={() => router.replace("/tickets?view=revision")}
+              style={{
+                padding: "10px 28px",
+                borderRadius: 8,
+                background: "#bdbdbd",
+                color: "#1a237e",
+                border: "none",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                boxShadow: "0 2px 8px #bdbdbd33"
+              }}
+            >
+              Volver
+            </button>
+            {!isEdit && (
+              <button
+                onClick={() => setIsEdit(true)}
+                style={{
+                  padding: "10px 28px",
+                  borderRadius: 8,
+                  background: "#ffd600",
+                  color: "#1a237e",
+                  border: "none",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  boxShadow: "0 2px 8px #ffd60088"
+                }}
+              >
+                Atender ticket
+              </button>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }
