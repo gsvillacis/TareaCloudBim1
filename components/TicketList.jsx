@@ -17,6 +17,7 @@ export default function TicketList({ tickets }) {
             <th>Registrado por</th>
             <th>Grupo Resolutor</th>
             <th>Descripción</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@ export default function TicketList({ tickets }) {
               <td>{ticket.registradoPor}</td>
               <td>{ticket.grupoResolutor}</td>
               <td>{ticket.descripcion}</td>
+              <td>{ticket.estado}</td> 
             </tr>
           ))}
         </tbody>
