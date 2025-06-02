@@ -7,7 +7,13 @@ const tipoOpciones = [
   { value: "networking", label: "Networking" },
 ];
 
-export default function TicketForm({ onAddTicket }) {
+const estadoOpciones = [
+  { value: "Abierto", label: "Abierto" },
+  { value: "En proceso", label: "En proceso" },
+  { value: "Resuelto", label: "Resuelto" },
+];
+
+export default function TicketForm({ onAddTicket, ticketCount }) {
   const [form, setForm] = useState({
     componente: "",
     source: "",
@@ -15,6 +21,7 @@ export default function TicketForm({ onAddTicket }) {
     tipo: "",
     grupoResolutor: "",
     descripcion: "",
+    estado: "Abierto", // Valor por defecto
   });
 
   const handleChange = (e) => {
@@ -24,7 +31,7 @@ export default function TicketForm({ onAddTicket }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fechaHora = new Date().toLocaleString();
-    const id = "TCK-" + Date.now();
+    const id = `INC${String(ticketCount + 1).padStart(4, "0")}`;
     onAddTicket({ ...form, id, fechaHora });
     setForm({
       componente: "",
@@ -33,6 +40,7 @@ export default function TicketForm({ onAddTicket }) {
       tipo: "",
       grupoResolutor: "",
       descripcion: "",
+      estado: "Abierto",
     });
   };
 
@@ -67,6 +75,14 @@ export default function TicketForm({ onAddTicket }) {
       <label>
         Descripción del error:
         <textarea name="descripcion" value={form.descripcion} onChange={handleChange} required />
+      </label>
+      <label>
+        Estado:
+        <select name="estado" value={form.estado} onChange={handleChange} required>
+          {estadoOpciones.map(opt => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
       </label>
       <button type="submit">Registrar Ticket</button>
     </form>
