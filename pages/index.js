@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import MapaCapacidades from "../components/MapaCapacidades";
-
 
 const CLIENT_ID = "940558538466-o825padcb3kqimqv2f1r0cslkn822dh4.apps.googleusercontent.com";
 
@@ -26,6 +25,7 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const loginDiv = useRef(null);
   const [visitas, setVisitas] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -57,6 +57,12 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      router.push("/menu");
+    }
+  }, [user, router]);
+
   return (
     <div>
       {!user ? (
@@ -66,9 +72,7 @@ export default function Home() {
           </h1>
           <div ref={loginDiv}></div>
         </div>
-      ) : (
-        <MapaCapacidades />
-      )}
+      ) : null}
       <div
         style={{
           position: "fixed",
