@@ -25,6 +25,11 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/mapa-capacidades": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/mapa-capacidades.js"
+    ],
     "/menu": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

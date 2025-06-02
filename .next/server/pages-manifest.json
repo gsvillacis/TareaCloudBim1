@@ -4,5 +4,6 @@
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
   "/menu": "pages/menu.js",
-  "/tickets": "pages/tickets.js"
+  "/tickets": "pages/tickets.js",
+  "/mapa-capacidades": "pages/mapa-capacidades.js"
 }
